@@ -3,7 +3,8 @@ APP_ENV=local
 APP_KEY=base64:msbQ8BUt3/qF9GklFQ5zku8Desp09JqYqo/akuhW+CY=
 APP_DEBUG=true
 APP_URL=https://dootell.herokuapp.com
-ENFORCE_SSL = false
+#change by vishal
+ENFORCE_SSL = false    
 
 
 LOG_CHANNEL=stack
