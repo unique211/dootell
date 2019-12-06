@@ -204,7 +204,7 @@ $(".wait").hide();
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/posts.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/posts.js',true) }}">
     </script>
 
     <script type="text/javascript">

@@ -144,7 +144,7 @@
         var redirect="{{ url('/') }}";
 
     </script>
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/forgot.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/forgot.js',true) }}">
     </script>
 
 

@@ -167,7 +167,7 @@ var role="<?php echo $val=Session::get('role');?>";
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/slider.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/slider.js',true) }}">
     </script>
 
     <script type="text/javascript">

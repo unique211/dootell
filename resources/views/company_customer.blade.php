@@ -236,7 +236,7 @@ $('#filehidden1').val(data);
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_customer.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_customer.js',true) }}">
     </script>
 
     <script type="text/javascript">

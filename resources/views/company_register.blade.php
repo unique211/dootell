@@ -285,7 +285,7 @@ $('#filehidden1').val(data);
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_register.js') }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_register.js',true) }}">
 </script>
 
 </html>

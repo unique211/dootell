@@ -85,7 +85,7 @@
         var jobseeker_package="{{ url('jobseeker_package') }}";
 
     </script>
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js',true) }}">
     </script>
 
 

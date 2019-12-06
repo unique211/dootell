@@ -368,7 +368,7 @@ $('#filehidden1').val(data);
 var change_status="{{ url('change_status_employee') }}";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_employee.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_employee.js',true) }}">
     </script>
 
     <script type="text/javascript">

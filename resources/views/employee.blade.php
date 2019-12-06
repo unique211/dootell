@@ -279,7 +279,7 @@ var delete_from_user_rights="{{ url('delete_from_user_rights') }}";
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/employee.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/employee.js',true) }}">
     </script>
 
     <script type="text/javascript">

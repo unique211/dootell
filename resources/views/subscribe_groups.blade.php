@@ -200,7 +200,7 @@ $(".wait").hide();
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscribe_groups.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscribe_groups.js',true) }}">
     </script>
 
     <script type="text/javascript">

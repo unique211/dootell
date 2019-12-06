@@ -239,7 +239,7 @@ var role="<?php echo Session::get('role');?>";
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js') }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js',true) }}">
 </script>
 
 </html>

@@ -228,7 +228,7 @@ var role="<?php echo $val=Session::get('role');?>";
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js',true) }}">
     </script>
 
     <script type="text/javascript">

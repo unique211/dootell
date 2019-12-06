@@ -389,7 +389,7 @@
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/notification.js') }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/notification.js',true) }}">
     </script>
 
     <script type='text/javascript'>
