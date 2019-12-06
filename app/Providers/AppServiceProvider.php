@@ -24,8 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       if (env('APP_ENV') !== 'local') {
-        $url->forceScheme('https');
-    }
+        //change by vishal
+       if(env('ENFORCE_SSL', false)) { 
+         $url->forceScheme('https'); 
+        }  
     }
 }
