@@ -435,9 +435,9 @@ $('#filehidden2').val(data);
 
     });
 
-    var add_data="{{ route('consultancy_student.store') }}";
+    var add_data="{{ route('consultancy_student.store',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('consultancy_student_delete') }}";
+    var delete_data="{{ url('consultancy_student_delete',true) }}";
 
     </script>
 

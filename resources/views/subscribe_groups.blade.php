@@ -191,10 +191,10 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ url('add_subscribe_group') }}";
+    var add_data="{{ url('add_subscribe_group',true) }}";
 
-    var delete_data="{{ url('subscribe_group_delete') }}";
-    var change_status="{{ url('change_status_customer') }}";
+    var delete_data="{{ url('subscribe_group_delete',true) }}";
+    var change_status="{{ url('change_status_customer',true) }}";
 
     var notification="{{ url('notification') }}";
 

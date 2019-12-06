@@ -220,9 +220,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('package_list.store') }}";
+    var add_data="{{ route('package_list.store',true) }}";
 
-    var delete_data="{{ url('package_list_delete') }}";
+    var delete_data="{{ url('package_list_delete',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 

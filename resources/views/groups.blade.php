@@ -181,9 +181,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('groups.store') }}";
-var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('groups_delete') }}";
+    var add_data="{{ route('groups.store',true) }}";
+var role="<?php echo $val=Session::get('role',true);?>";
+    var delete_data="{{ url('groups_delete',true) }}";
 
     </script>
 

@@ -161,9 +161,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('slider.store') }}";
+    var add_data="{{ route('slider.store',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('slider_delete') }}";
+    var delete_data="{{ url('slider_delete',true) }}";
 
     </script>
 

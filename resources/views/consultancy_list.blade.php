@@ -246,9 +246,9 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('consultancy.store') }}";
+    var add_data="{{ route('consultancy.store',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('consultancy_delete_data') }}";
+    var delete_data="{{ url('consultancy_delete_data',true) }}";
 
     </script>
 

@@ -362,10 +362,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company_employee.store') }}";
+    var add_data="{{ route('company_employee.store',true) }}";
 
-    var delete_data="{{ url('company_employee_delete_data') }}";
-var change_status="{{ url('change_status_employee') }}";
+    var delete_data="{{ url('company_employee_delete_data',true) }}";
+var change_status="{{ url('change_status_employee',true) }}";
     </script>
 
     <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_employee.js',true) }}">

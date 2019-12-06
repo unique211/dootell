@@ -271,11 +271,11 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('employee.store') }}";
+    var add_data="{{ route('employee.store',true) }}";
 
-    var delete_data="{{ url('employee_delete') }}";
-    var delete_from_login="{{ url('delete_from_login') }}";
-var delete_from_user_rights="{{ url('delete_from_user_rights') }}";
+    var delete_data="{{ url('employee_delete',true) }}";
+    var delete_from_login="{{ url('delete_from_login',true) }}";
+var delete_from_user_rights="{{ url('delete_from_user_rights',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 

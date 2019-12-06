@@ -223,9 +223,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('subscriber.store') }}";
+    var add_data="{{ route('subscriber.store',true) }}";
 var redirect="{{ url('/') }}";
-    var delete_data="{{ url('subscriber_delete') }}";
+    var delete_data="{{ url('subscriber_delete',true) }}";
 var role="<?php echo Session::get('role');?>";
 </script>
 <script>

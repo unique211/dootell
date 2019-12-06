@@ -469,9 +469,9 @@ $(".wait").hide();
 
 
     });
-    var add_data="{{ route('jobseeker.store') }}";
-var add_experience="{{ url('add_experience') }}";
-    var delete_data="{{ url('jobseeker_delete') }}";
+    var add_data="{{ route('jobseeker.store',true) }}";
+var add_experience="{{ url('add_experience',true) }}";
+    var delete_data="{{ url('jobseeker_delete',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 

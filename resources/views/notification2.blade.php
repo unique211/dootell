@@ -405,7 +405,7 @@
                 date:date,
                 group_id:group_id,
             },
-            url: "{{ url('get_datewise_notifications') }}",
+            url: "{{ url('get_datewise_notifications',true) }}",
             type: "POST",
             dataType: 'json',
             success: function(data) {

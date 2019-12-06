@@ -173,9 +173,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('testimonials.store') }}";
+    var add_data="{{ route('testimonials.store',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('testimonials_delete') }}";
+    var delete_data="{{ url('testimonials_delete',true) }}";
 
     </script>
 

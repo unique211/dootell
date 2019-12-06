@@ -222,9 +222,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('subscriber.store') }}";
+    var add_data="{{ route('subscriber.store',true) }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('subscriber_delete') }}";
+    var delete_data="{{ url('subscriber_delete',true) }}";
 
     </script>
 

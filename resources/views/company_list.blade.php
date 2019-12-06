@@ -259,9 +259,9 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company.store') }}";
-var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('company_delete') }}";
+    var add_data="{{ route('company.store',true) }}";
+var role="<?php echo $val=Session::get('role',true);?>";
+    var delete_data="{{ url('company_delete',true) }}";
 
     </script>
 

@@ -198,10 +198,10 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('posts.store') }}";
+    var add_data="{{ route('posts.store',true) }}";
 
-    var delete_data="{{ url('posts_delete') }}";
-var role="<?php echo $val=Session::get('role');?>";
+    var delete_data="{{ url('posts_delete',true) }}";
+var role="<?php echo $val=Session::get('role',true);?>";
     </script>
 
     <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/posts.js',true) }}">

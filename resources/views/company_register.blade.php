@@ -266,10 +266,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company.store') }}";
+    var add_data="{{ route('company.store',true) }}";
 
-    var delete_data="{{ url('company_delete') }}";
-    var payment="{{ url('payment') }}";
+    var delete_data="{{ url('company_delete',true) }}";
+    var payment="{{ url('payment',true) }}";
 
     var role="<?php echo Session::get('role');?>";
 

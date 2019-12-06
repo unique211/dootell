@@ -140,7 +140,7 @@
 
 
         });
-        var change_password="{{ url('change_password') }}";
+        var change_password="{{ url('change_password',true) }}";
         var redirect="{{ url('/') }}";
 
     </script>

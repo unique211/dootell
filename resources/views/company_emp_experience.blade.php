@@ -224,10 +224,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company_emp_experience.store') }}";
+    var add_data="{{ route('company_emp_experience.store',true) }}";
 
-    var delete_data="{{ url('company_emp_experience_delete') }}";
-    {{--  var change_status="{{ url('change_status_customer') }}";  --}}
+    var delete_data="{{ url('company_emp_experience_delete',true) }}";
+    {{--  var change_status="{{ url('change_status_customer',true) }}";  --}}
 
     </script>
 

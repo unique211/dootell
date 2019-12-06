@@ -330,10 +330,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company_postjob.store') }}";
+    var add_data="{{ route('company_postjob.store',true) }}";
 
-    var delete_data="{{ url('company_postjob_delete') }}";
-var change_status="{{ url('change_status_job_post') }}";
+    var delete_data="{{ url('company_postjob_delete',true) }}";
+var change_status="{{ url('change_status_job_post',true) }}";
     </script>
 
     <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_job_post.js',true) }}">
