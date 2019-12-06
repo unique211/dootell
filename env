@@ -2,16 +2,16 @@ APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:msbQ8BUt3/qF9GklFQ5zku8Desp09JqYqo/akuhW+CY=
 APP_DEBUG=true
-APP_URL=http://192.168.2.103/dootell
+APP_URL=https://dootell.herokuapp.com
 
 LOG_CHANNEL=stack
 
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
+DB_HOST=us-cdbr-iron-east-05.cleardb.net
 DB_PORT=3306
-DB_DATABASE=dootel
-DB_USERNAME=root
-DB_PASSWORD=
+DB_DATABASE=heroku_fda3e955b291134
+DB_USERNAME=be84e3e7e45aaf
+DB_PASSWORD=ca9c086f
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
