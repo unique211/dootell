@@ -16,7 +16,7 @@
     <title>Dootell</title>
 
     {{--  CSS INCLUDE  --}}
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/resources/sass/theme.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('/resources/sass/theme.css',true) }}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/resources/sass/custom.css') }}" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
