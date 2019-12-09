@@ -1,6 +1,6 @@
 $(document).ready(function() {
     headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content');
   }
     /*---------login-----------------*/
     $(document).on("submit", "#loginform", function(e) {
