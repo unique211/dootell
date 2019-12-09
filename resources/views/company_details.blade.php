@@ -184,9 +184,9 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('consultancy.store',true) }}";
+    var add_data="{{ route('consultancy.store') }}";
 
-    var delete_data="{{ url('consultancy_delete_data',true) }}";
+    var delete_data="{{ url('consultancy_delete_data') }}";
 var role="<?php echo Session::get('role');?>";
 </script>
 
