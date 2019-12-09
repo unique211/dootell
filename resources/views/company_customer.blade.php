@@ -229,10 +229,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company_customers.store',true) }}";
+    var add_data="{{ route('company_customers.store') }}";
 
-    var delete_data="{{ url('company_customers_delete',true) }}";
-    var change_status="{{ url('change_status_customer',true) }}";
+    var delete_data="{{ url('company_customers_delete') }}";
+    var change_status="{{ url('change_status_customer') }}";
 
     </script>
 
