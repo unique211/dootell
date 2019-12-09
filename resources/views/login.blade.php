@@ -45,7 +45,7 @@
                             </form>
                             <div class="form-group ">
                                 Have&#39;t Any Account
-                                <a href="{{ url('package') }}" style='color:green;'><b><i>Create An Account
+                                <a href="{{ secure_url('package') }}" style='color:green;'><b><i>Create An Account
                                             ?</i></b></a>
 
                             </div>
@@ -78,11 +78,11 @@
 
 
         });
-       var login="{{ url('login_check') }}";
-        var redirect="{{ url('dashboard') }}";
-        var company_package="{{ url('company_package') }}";
-        var consultancy_package="{{ url('consultancy_package') }}";
-        var jobseeker_package="{{ url('jobseeker_package') }}";
+       var login="{{ secure_url('login_check') }}";
+        var redirect="{{ secure_url('dashboard') }}";
+        var company_package="{{ secure_url('company_package') }}";
+        var consultancy_package="{{ secure_url('consultancy_package') }}";
+        var jobseeker_package="{{ secure_url('jobseeker_package') }}";
 
     </script>
     <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js',true) }}">
