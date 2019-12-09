@@ -16,10 +16,16 @@ use Illuminate\Http\Request;
 //     return view('welcome');
 // });
 
+//change by vishal
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 Route::post('login_check', 'LoginController@check_login');
 // Route::get('/', function () {
 //     return view('login');
 // });
+
 
 Route::get('/logout', function (Request $request) {
 
