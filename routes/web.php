@@ -17,9 +17,9 @@ use Illuminate\Http\Request;
 // });
 
 //change by vishal
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
+if(config('app.debug')!=true) {
+    \URL::forceScheme('https');
+  }
 
 Route::post('login_check', 'LoginController@check_login');
 // Route::get('/', function () {
