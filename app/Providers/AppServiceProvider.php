@@ -24,9 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-        //change by vishal
-       if(env('ENFORCE_SSL', false)) { 
-         $url->forceScheme('https'); 
-        }  
+        URL::forceSchema('https');
     }
 }
