@@ -26,7 +26,7 @@
                                     <label>Password</label>
                                     <input type="password" name="password" value="" id="password" placeholder="Password"
                                         class="form-control" required />
-                                    <a href="{{ url('forgot') }}" style='color:red;'><b><i>Forgot Your
+                                    <a href="{{ secure_url('forgot') }}" style='color:red;'><b><i>Forgot Your
                                                 Password?</i></b></a>
 
                                 </div>
