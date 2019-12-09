@@ -24,9 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-     \URL::forceRootUrl(\Config::get('app.url'));    
-    if (str_contains(\Config::get('app.url'), 'https://')) {
-        \URL::forceScheme('https');
-    }
+     if(config('app.debug')!=true) {
+    \URL::forceScheme('https');
+  }
     }
 }
