@@ -7,11 +7,7 @@ $(document).ready(function() {
         var password = $('#password').val();
         // alert('submit');
         $(':input[type="submit"]').prop('disabled', true);
-         $.ajaxSetup({
-        headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-        });
+     
         $.ajax({
             data: $('#loginform').serialize(),
             url: login,
