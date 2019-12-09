@@ -78,7 +78,8 @@
 
 
         });
-        var login="{{ url('login_check') }}";
+      //  var login="{{ url('login_check') }}";
+      var login="{{ url('LoginController/check_login') }}";
         var redirect="{{ url('dashboard') }}";
         var company_package="{{ url('company_package') }}";
         var consultancy_package="{{ url('consultancy_package') }}";
