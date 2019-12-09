@@ -78,11 +78,11 @@
 
 
         });
-        var login="{{ url('login_check') }}";
-        var redirect="{{ url('dashboard') }}";
-        var company_package="{{ url('company_package') }}";
-        var consultancy_package="{{ url('consultancy_package') }}";
-        var jobseeker_package="{{ url('jobseeker_package') }}";
+        var login="{{ route('login_check') }}";
+        var redirect="{{ route('dashboard') }}";
+        var company_package="{{ route('company_package') }}";
+        var consultancy_package="{{ route('consultancy_package') }}";
+        var jobseeker_package="{{ route('jobseeker_package') }}";
 
     </script>
     <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js',true) }}">
