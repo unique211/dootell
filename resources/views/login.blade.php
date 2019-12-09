@@ -78,8 +78,8 @@
 
 
         });
-        var login="{{ url('login_check',true) }}";
-        var redirect="{{ url('dashboard',true) }}";
+        var login="{{ secure_url('login_check',true) }}";
+        var redirect="{{ secure_url('dashboard',true) }}";
         var company_package="{{ url('company_package',true) }}";
         var consultancy_package="{{ url('consultancy_package',true) }}";
         var jobseeker_package="{{ url('jobseeker_package',true) }}";
