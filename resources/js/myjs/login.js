@@ -1,10 +1,11 @@
 $(document).ready(function() {
-    headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content');
-  }
+   
     /*---------login-----------------*/
     $(document).on("submit", "#loginform", function(e) {
         e.preventDefault();
+         headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content');
+  }
         var user_id = $('#user_id').val();
         var password = $('#password').val();
         // alert('submit');
