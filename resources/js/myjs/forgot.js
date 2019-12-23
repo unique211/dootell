@@ -158,7 +158,7 @@ $(document).ready(function() {
         //  $("span.second").val(00);
         var fragmentTime;
         $('.timeout_message_show').hide();
-        var minutes = 01;
+        var minutes = 02;
         var seconds = 00;
         //var minutes = $("span.minute").html();
         // var seconds = $("span.second").html();

@@ -172,7 +172,7 @@
                                         class="form-control" />
                                 </div>
                                 <div class="timer-container countdown" id="#run-the-timer" style="color: red;">
-                                    <span class="minute">01</span>:<span class="second">00</span>
+                                    <span class="minute">02</span>:<span class="second">00</span>
 
                                 </div>
                                 <span class="timeout_message_show" style="display:none; color: red;">We are
