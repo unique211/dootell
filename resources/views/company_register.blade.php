@@ -266,10 +266,10 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company.store',true) }}";
+    var add_data="{{ route('company.store') }}";
 
-    var delete_data="{{ url('company_delete',true) }}";
-    var payment="{{ url('payment',true) }}";
+    var delete_data="{{ url('company_delete') }}";
+    var payment="{{ url('payment') }}";
 
     var role="<?php echo Session::get('role');?>";
 
@@ -285,7 +285,7 @@ $('#filehidden1').val(data);
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_register.js',true) }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_register.js') }}">
 </script>
 
 </html>

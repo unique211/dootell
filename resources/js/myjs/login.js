@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
     /*---------login-----------------*/
     $(document).on("submit", "#loginform", function(e) {
         e.preventDefault();
@@ -7,7 +7,7 @@ $(document).ready(function() {
         var password = $('#password').val();
         // alert('submit');
         $(':input[type="submit"]').prop('disabled', true);
-     
+
         $.ajax({
             data: $('#loginform').serialize(),
             url: login,
@@ -15,6 +15,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 console.log(data);
+
                 $(':input[type="submit"]').prop('disabled', false);
                 if (data == 1 || data == "1") {
                     successTost("Login Successfully");
@@ -46,6 +47,24 @@ $(document).ready(function() {
                             return false;
                         });
                     //    swal("Account Expired", "Hey, Your Account is Expired Please Contact Admin !!", "error");
+
+                } else if (data == 3 || data == "3") {
+                    swal({
+                            title: "Payment Not Done",
+                            text: "Your Payment Not Done. Please, Pay Now !!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Pay Now !!",
+                            closeOnConfirm: false
+                        },
+                        function() {
+                            $('#hidden_form').submit();
+
+
+                            return false;
+                        });
+
 
                 }
                 // else if (data == 2 || data == "2") {

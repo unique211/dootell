@@ -140,11 +140,11 @@
 
 
         });
-        var change_password="{{ url('change_password',true) }}";
+        var change_password="{{ url('change_password') }}";
         var redirect="{{ url('/') }}";
 
     </script>
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/forgot.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/forgot.js') }}">
     </script>
 
 

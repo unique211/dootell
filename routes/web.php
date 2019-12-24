@@ -370,9 +370,10 @@ Route::get('renew_company', 'Company_renew_Controller@renew_company');
 Route::post('payment_jobseeker_renew', 'Jobseeker_renew_Controller@order');
 Route::get('renew_jobseeker', 'Jobseeker_renew_Controller@renew_jobseeker');
 
-
-
-
+Route::get('update_payment_status_company', 'CompanyController@change_company_payment_status');
+Route::get('update_payment_status_consultancy', 'ConsultancyController@change_consultancy_payment_status');
+Route::get('update_payment_status_jobseeker', 'JobseekerController@change_jobseeker_payment_status');
+Route::get('update_payment_status_all', 'LoginController@change_all_payment_status');
 
 Route::group(['middleware' => 'prevent-back-history'], function () {
     Auth::routes();
@@ -399,3 +400,4 @@ Route::get('get_mobile_number/{id}', 'LoginController@get_mobile_number');
 Route::post('change_password', 'LoginController@change_password');
 Route::get('get_user_details/{id}', 'LoginController@get_user_details');
 Route::post('get_current_rights/{id}', 'LoginController@get_current_rights');
+Route::post('payment_login', 'LoginController@order');

@@ -9,7 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     {{--  END META SECTION  --}}
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/resources/img/favicon.ico">

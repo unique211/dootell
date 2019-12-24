@@ -89,7 +89,6 @@ class CompanyController extends Controller
                 'reference'        =>  $request->reference,
                 'logo'        =>  $request->filehidden1,
 
-
             ]
 
         );
@@ -120,7 +119,7 @@ class CompanyController extends Controller
                     'email'        =>   $request->email,
                     'password'        =>    $password,
                     'expire_date'        =>    $date3,
-
+                    'payment_status'        =>  0,
                 ]
 
             );
@@ -136,6 +135,11 @@ class CompanyController extends Controller
                 ]
 
             );
+        }
+        if($ID==""){
+            $where=array('role'=>$role,'ref_id'=>$ref_id);
+            Login_master::where($where)->update(['payment_status' => 0]);
+            Company_register::where('id',$ref_id)->update(['payment_status' => 0]);
         }
 
         return Response::json($ref_id);
@@ -261,7 +265,8 @@ class CompanyController extends Controller
         $payment_for = "Registration";
         //EventRegistration::create($input);
 
-
+        $request->session()->put('payment_ref_id',  $id);
+        $request->session()->put('payment_role',  $role);
 
         if ($data->package_price > 0) {
 
@@ -302,7 +307,10 @@ class CompanyController extends Controller
 
             Transactions::create($data1);
 
-            return redirect('/');
+
+
+            return redirect('update_payment_status_company');
+
         }
 
         //   dd($id);
@@ -327,7 +335,8 @@ class CompanyController extends Controller
 
         if ($transaction->isSuccessful()) {
             Transactions::where('order_id', $order_id)->update(['status' => 2, 'transaction_id' => $transaction->getTransactionId()]);
-            return redirect('/');
+
+            return redirect('update_payment_status_company');
 
             // dd('Payment Successfully Paid.');
         } else if ($transaction->isFailed()) {
@@ -362,5 +371,20 @@ class CompanyController extends Controller
 
             return $filename;
         }
+    }
+    public function change_company_payment_status(Request $request)
+    {
+        $id = Session::get('payment_ref_id');
+        $role = Session::get('payment_role');
+
+        $where=array('role'=>$role,'ref_id'=>$id);
+        Login_master::where($where)->update(['payment_status' => 1]);
+        Company_register::where('id',$id)->update(['payment_status' => 1]);
+
+        $request->session()->forget('payment_ref_id');
+        $request->session()->forget('payment_role');
+
+
+        return redirect('/');
     }
 }

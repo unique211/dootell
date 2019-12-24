@@ -96,9 +96,17 @@
                                                 placeholder="Post Title" required />
 
                                         </div>
+                                        <label class="col-lg-3">Image* <span style="color:red;">(Please upload file upto
+                                            1 MB Size)</span></label>
+
+                                    <div class="col-lg-3">
+                                        <input type="file" name="image" id="image" />
+                                        <input type="hidden" name="filehidden1" id="filehidden1" value="">
+                                        <br><br>
+                                    </div>
                                         <label class="col-lg-3 ">Description*</label>
-                                        <div class="col-lg-3">
-                                            <textarea name="description" id="description" class="form-control"
+                                        <div class="col-lg-9">
+                                            <textarea name="description" style="resize:none" id="description" class="form-control"
                                                 placeholder="Description" rows="2" required>
 
                                             </textarea>
@@ -106,13 +114,7 @@
                                             <br>
                                         </div>
 
-                                        <label class="col-lg-3">Image* <span style="color:red;">(Please upload file upto
-                                                1 MB Size)</span></label>
-                                        <div class="col-lg-3">
-                                            <input type="file" name="image" id="image" />
-                                            <input type="hidden" name="filehidden1" id="filehidden1" value="">
 
-                                        </div>
 
 
 
@@ -198,13 +200,13 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('posts.store',true) }}";
+    var add_data="{{ route('posts.store') }}";
 
-    var delete_data="{{ url('posts_delete',true) }}";
-var role="<?php echo $val=Session::get('role',true);?>";
+    var delete_data="{{ url('posts_delete') }}";
+var role="<?php echo $val=Session::get('role');?>";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/posts.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/posts.js') }}">
     </script>
 
     <script type="text/javascript">
