@@ -27,6 +27,8 @@ Route::post('payment/status_jobseeker', 'JobseekerController@paymentCallback');
 
 Route::post('payment/status_subscribe', 'Subscribe_groupsController@paymentCallback');
 
+Route::post('payment/status_all', 'LoginController@paymentCallback');
+
 
 Route::post('payment/status_consultancy2', 'Consultancy_renew_Controller@paymentCallback');
 Route::post('payment/status2', 'Company_renew_Controller@paymentCallback');

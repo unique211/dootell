@@ -141,13 +141,17 @@ class Consultancy_renew_Controller extends Controller
         date_default_timezone_set('Asia/Kolkata');
         $date = date("Y-m-d");
         $date2 = date('Y-m-d', strtotime($date . ' + ' . $validity . ' days'));
+
+        $set = array('expire_date' => $date2, 'payment_status' => 1);
         $result = DB::table('login_master')
             ->where('ref_id', $reference_id)
             ->where('role', 'Consultancy')
-            ->update(['expire_date' => $date2]);
+            ->update($set);
+
+            $set1 = array('package_id' => $package_id, 'payment_status' => 1);
         $result2 = DB::table('consultancy_register')
             ->where('id', $reference_id)
-            ->update(['package_id' => $package_id]);
+            ->update($set1);
 
         Session::flush();
 

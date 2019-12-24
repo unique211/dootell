@@ -64,11 +64,11 @@
 
 
                     @if(is_null($reference_id))
-                    <a href="{{ url('company_register',true) }}/{{ $value->id  }}" class="btn"
+                    <a href="{{ url('company_register') }}/{{ $value->id  }}" class="btn"
                         style="background-color:red">Buy</a>
 
                     @else
-                    <a href="{{ url('company_details',true) }}/{{ $value->id  }}/{{ $reference_id  }}" class="btn"
+                    <a href="{{ url('company_details') }}/{{ $value->id  }}/{{ $reference_id  }}" class="btn"
                         style="background-color:red">Buy</a>
                     @endif
                 </div>

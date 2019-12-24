@@ -26,7 +26,7 @@
                                     <label>Password</label>
                                     <input type="password" name="password" value="" id="password" placeholder="Password"
                                         class="form-control" required />
-                                    <a href="{{ secure_url('forgot') }}" style='color:red;'><b><i>Forgot Your
+                                    <a href="{{ url('forgot') }}" style='color:red;'><b><i>Forgot Your
                                                 Password?</i></b></a>
 
                                 </div>
@@ -43,9 +43,13 @@
 
 
                             </form>
+                            <form action="{{ url('payment_login') }}" method="POST" id="hidden_form" name="hidden_form">
+                                @csrf
+                                <input type="hidden" name="return_id" id="return_id" value="">
+                            </form>
                             <div class="form-group ">
                                 Have&#39;t Any Account
-                                <a href="{{ secure_url('package') }}" style='color:green;'><b><i>Create An Account
+                                <a href="{{ url('package') }}" style='color:green;'><b><i>Create An Account
                                             ?</i></b></a>
 
                             </div>
@@ -78,14 +82,14 @@
 
 
         });
-       var login="{{ secure_url('login_check') }}";
-        var redirect="{{ secure_url('dashboard') }}";
-        var company_package="{{ secure_url('company_package') }}";
-        var consultancy_package="{{ secure_url('consultancy_package') }}";
-        var jobseeker_package="{{ secure_url('jobseeker_package') }}";
+       var login="{{ url('login_check') }}";
+        var redirect="{{ url('dashboard') }}";
+        var company_package="{{ url('company_package') }}";
+        var consultancy_package="{{ url('consultancy_package') }}";
+        var jobseeker_package="{{ url('jobseeker_package') }}";
 
     </script>
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/login.js') }}">
     </script>
 
 

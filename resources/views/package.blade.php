@@ -1,34 +1,51 @@
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-{{--  <!------ Include the above in your HEAD tag ---------->  --}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
 
-<style>
-    .productbox {
-        background-color: #ffffff;
-        padding: 10px;
-        margin-bottom: 10px;
-        -webkit-box-shadow: 0 8px 6px -6px #999;
-        -moz-box-shadow: 0 8px 6px -6px #999;
-        box-shadow: 0 8px 6px -6px #999;
-    }
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    .producttitle {
-        font-weight: bold;
-        padding: 5px 0 5px 0;
-    }
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    .productprice {
-        border-top: 1px solid #dadada;
-        padding-top: 5px;
-        margin-top: 10px;
-    }
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        {{--  <!------ Include the above in your HEAD tag ---------->  --}}
 
-    .pricetext {
-        font-weight: bold;
-        font-size: 1.4em;
-    }
-</style>
+        <style>
+            .productbox {
+                background-color: #ffffff;
+                padding: 10px;
+                margin-bottom: 10px;
+                -webkit-box-shadow: 0 8px 6px -6px #999;
+                -moz-box-shadow: 0 8px 6px -6px #999;
+                box-shadow: 0 8px 6px -6px #999;
+            }
+
+            .producttitle {
+                font-weight: bold;
+                padding: 5px 0 5px 0;
+            }
+
+            .productprice {
+                border-top: 1px solid #dadada;
+                padding-top: 5px;
+                margin-top: 10px;
+            }
+
+            .pricetext {
+                font-weight: bold;
+                font-size: 1.4em;
+            }
+        </style>
+    </head>
+
+
+
+
 
 <body>
 

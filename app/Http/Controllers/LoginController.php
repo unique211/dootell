@@ -7,6 +7,12 @@ use App\Login_master;
 use Redirect, Response;
 use Session;
 use Illuminate\Support\Facades\DB;
+use App\Transactions;
+use App\Cunsultancy_register;
+use App\Jobseeker_register;
+use App\Company_register;
+use PaytmWallet;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -151,11 +157,25 @@ class LoginController extends Controller
                         ->get();
                     $cnt1 = count($exp);
                     if ($cnt1 > 0) {
-                        $msg = 1;
-                        $request->session()->put('userid',  $user_id);
-                        $request->session()->put('role',  $get_role);
-                        $request->session()->put('id',  $get_id);
-                        $request->session()->put('refid',  $get_ref_id);
+                        $payment = DB::table('login_master')
+                            ->select('login_master.*')
+                            ->where('email', $user_id)
+                            ->where('password', $password)
+                            ->where('payment_status', 0)
+                            ->get();
+                        $cnt2 = count($payment);
+                        if ($cnt2 > 0) {
+                            $msg = 3;
+                            $request->session()->put('refid',  $get_ref_id);
+                            $request->session()->put('role',  $get_role);
+                        } else {
+
+                            $msg = 1;
+                            $request->session()->put('userid',  $user_id);
+                            $request->session()->put('role',  $get_role);
+                            $request->session()->put('id',  $get_id);
+                            $request->session()->put('refid',  $get_ref_id);
+                        }
                     } else {
                         $msg = 2;
                     }
@@ -349,8 +369,12 @@ class LoginController extends Controller
 
     public function get_mobile_number($id)
     {
+
+
         $email = $id;
         $id = "";
+
+
         $data1 = DB::table('login_master')
             ->select('login_master.*')
             ->where('email', $email)
@@ -366,34 +390,51 @@ class LoginController extends Controller
             $data2 = DB::table('company_register')
                 ->select('company_register.*')
                 ->where('id', $ref_id)
-                ->first();
-            $mobile =  $data2->mobile;
+                ->get();
+                foreach($data2 as $val){
+                    $mobile =  $val->mobile;
+                }
+
+            return $mobile;
         } else if ($role == "Consultancy") {
             $data2 = DB::table('consultancy_register')
                 ->select('consultancy_register.*')
                 ->where('id', $ref_id)
-                ->first();
-            $mobile =  $data2->mobile;
+                ->get();
+                foreach($data2 as $val){
+                    $mobile =  $val->mobile;
+                }
+            return $mobile;
         } else if ($role == "Individual") {
             $data2 = DB::table('jobseeker_register')
                 ->select('jobseeker_register.*')
                 ->where('id', $ref_id)
-                ->first();
-            $mobile =  $data2->mobile;
+                ->get();
+                foreach($data2 as $val){
+                    $mobile =  $val->mobile;
+                }
+            return $mobile;
         } else if ($role == "Subscriber") {
             $data2 = DB::table('subscriber_register')
                 ->select('subscriber_register.*')
                 ->where('id', $ref_id)
-                ->first();
-            $mobile =  $data1->mobile;
+                ->get();
+                foreach($data2 as $val){
+                    $mobile =  $val->mobile;
+                }
+            return $mobile;
         } else {
             $data2 = DB::table('employee')
                 ->select('employee.*')
                 ->where('id', $ref_id)
-                ->first();
-            $mobile =  $data2->mobile;
+                ->get();
+                foreach($data2 as $val){
+                    $mobile =  $val->mobile;
+                }
+            return $mobile;
         }
-        return $mobile;
+
+
     }
     public function change_password(Request  $request)
     {
@@ -421,6 +462,24 @@ class LoginController extends Controller
             ->first();
 
         Session::put('reference_id', $data1->ref_id);
+        Session::put('role', $data1->role);
+
+
+        $role = Session::get('role');
+        $ref_id = Session::get('reference_id');
+
+        $where = array('role' => $role, 'ref_id' => $ref_id);
+        Login_master::where($where)->update(['payment_status' => 0]);
+
+        if ($role == "Company") {
+            Company_register::where('id', $ref_id)->update(['payment_status' => 0]);
+        } else if ($role == "Consultancy") {
+            Cunsultancy_register::where('id', $ref_id)->update(['payment_status' => 0]);
+        } else if ($role == "Individual") {
+            Jobseeker_register::where('id', $ref_id)->update(['payment_status' => 0]);
+        }
+
+
         //  Session::flush();
         return Response::json($data1);
     }
@@ -449,5 +508,151 @@ class LoginController extends Controller
         }
         // dd($return);
         return Response::json($return);
+    }
+
+    public function order(Request $request)
+    {
+
+
+
+        $id = Session::get('refid');
+        $role = Session::get('role');
+        $data = "";
+
+
+        if ($role == "Company") {
+            $data = DB::table('company_register')
+                ->select('company_register.*', 'package_list_master.package_validity', 'package_list_master.package_price', 'login_master.email')
+                ->join('package_list_master', 'package_list_master.id', '=', 'company_register.package_id')
+                ->join('login_master', 'login_master.ref_id', '=', 'company_register.id')
+                ->where('login_master.role', $role)
+                ->where('company_register.id', $id)
+                ->first();
+        } else if ($role == "Consultancy") {
+            $data = DB::table('consultancy_register')
+                ->select('consultancy_register.*', 'package_list_master.package_validity', 'package_list_master.package_price', 'login_master.email')
+                ->join('package_list_master', 'package_list_master.id', '=', 'consultancy_register.package_id')
+                ->join('login_master', 'login_master.ref_id', '=', 'consultancy_register.id')
+                ->where('login_master.role', $role)
+                ->where('consultancy_register.id', $id)
+                ->first();
+        } else if ($role == "Individual") {
+            $data = DB::table('jobseeker_register')
+                ->select('jobseeker_register.*', 'package_list_master.package_validity', 'package_list_master.package_price')
+                ->join('package_list_master', 'package_list_master.id', '=', 'jobseeker_register.package_id')
+                ->where('jobseeker_register.id', $id)
+                ->first();
+        }
+
+
+
+
+
+
+        //  $input = $data->all();
+        //  $input['order_id'] = $data->mobile . rand(1, 100);
+        //   $input['fee'] = $data->package_price;
+        // $input['uer'] = 50;
+
+        //  $input = $data;
+        $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        $input = substr(
+            str_shuffle($str_result),
+            0,
+            10
+        );
+        //  $input =  rand(1, 100);
+        //  $input['fee'] = 50;
+
+        $payment_for = "Registration";
+        //EventRegistration::create($input);
+
+        $request->session()->put('payment_ref_id',  $id);
+        $request->session()->put('payment_role',  $role);
+
+        if ($data->package_price > 0) {
+
+            $data1 = array(
+                'ref_id' => $id,
+                'role' => $role,
+                'order_id' => $input,
+                'transaction_id' => 0,
+                'payment_for' => $payment_for,
+                'status' => 0,
+                'amount' => $data->package_price,
+            );
+
+            Transactions::create($data1);
+
+            $payment = PaytmWallet::with('receive');
+            $payment->prepare([
+                'order' => $input,
+                'user' => $data->mobile,
+                'mobile_number' => $data->mobile,
+                'email' => $data->email,
+                'amount' => $data->package_price,
+                'callback_url' => url('api/payment/status_all')
+            ]);
+
+
+            return $payment->receive();
+        } else {
+            $data1 = array(
+                'ref_id' => $id,
+                'role' => $role,
+                'order_id' => $input,
+                'transaction_id' => 0,
+                'payment_for' => $payment_for,
+                'status' => 2,
+                'amount' => $data->package_price,
+            );
+
+            Transactions::create($data1);
+
+
+
+            return redirect('update_payment_status_all');
+        }
+
+        //   dd($id);
+        //  return Redirect::$payment->receive();
+        //   return redirect()->$payment->receive();
+    }
+
+    public function paymentCallback()
+    {
+        $transaction = PaytmWallet::with('receive');
+
+
+        $response = $transaction->response();
+        $order_id = $transaction->getOrderId();
+
+
+        if ($transaction->isSuccessful()) {
+            Transactions::where('order_id', $order_id)->update(['status' => 2, 'transaction_id' => $transaction->getTransactionId()]);
+
+            return redirect('update_payment_status_all');
+
+            // dd('Payment Successfully Paid.');
+        } else if ($transaction->isFailed()) {
+            Transactions::where('order_id', $order_id)->update(['status' => 1, 'transaction_id' => $transaction->getTransactionId()]);
+            dd('Payment Failed.');
+        }
+    }
+
+    public function change_all_payment_status(Request $request)
+    {
+
+        $request->session()->forget('refid');
+        $request->session()->forget('role');
+        $role = Session::get('payment_role');
+
+        if ($role == "Company") {
+            return redirect('update_payment_status_company');
+        } else if ($role == "Consultancy") {
+            return redirect('update_payment_status_consultancy');
+        } else if ($role == "Individual") {
+            return redirect('update_payment_status_jobseeker');
+        }
     }
 }

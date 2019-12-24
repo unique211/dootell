@@ -177,9 +177,9 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('consultancy.store',true) }}";
+    var add_data="{{ route('consultancy.store') }}";
 
-    var delete_data="{{ url('consultancy_delete_data',true) }}";
+    var delete_data="{{ url('consultancy_delete_data') }}";
 var role="<?php echo Session::get('role');?>";
 </script>
 
@@ -194,7 +194,7 @@ var role="<?php echo Session::get('role');?>";
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/consultancy_register.js',true) }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/consultancy_register.js') }}">
 </script>
 
 </html>

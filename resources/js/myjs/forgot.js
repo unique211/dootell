@@ -1,8 +1,9 @@
 $(document).ready(function() {
-
+    var mobile = 0;
     var random;
-    var mobile;
+
     var email_id;
+    $(':input[type="submit"]').prop('disabled', true);
     $(document).on('blur', "#email", function(e) {
         e.preventDefault();
 
@@ -34,11 +35,27 @@ $(document).ready(function() {
     });
 
     function get_mobile(email) {
+        $(':input[type="submit"]').prop('disabled', false);
 
-        $.get('get_mobile_number/' + email, function(data) {
+        $.ajax({
 
-            mobile = data;
+            url: 'get_mobile_number/' + email,
+            type: "GET",
+            async: false,
+            success: function(data) {
+
+                if (data == "") {
+                    swal("Not Found Mobile Number", "Hey, Your Mobile Number is Not Registed with us !!", "error");
+                    $(':input[type="submit"]').prop('disabled', true);
+                } else {
+                    mobile = data;
+                    $(':input[type="submit"]').prop('disabled', false);
+                }
+            }
         });
+
+
+
     }
 
 

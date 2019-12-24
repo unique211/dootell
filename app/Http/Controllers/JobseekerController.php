@@ -171,6 +171,12 @@ class JobseekerController extends Controller
             DB::table('jobseeker_experience')->where('ref_id', $ref_id)->where('role', 'Individual')->delete();
         }
 
+        if($ID==""){
+            $where=array('role'=>$role,'ref_id'=>$ref_id);
+            Login_master::where($where)->update(['payment_status' => 0]);
+            Jobseeker_register::where('id',$ref_id)->update(['payment_status' => 0]);
+        }
+
 
         return Response::json($ref_id);
     }
@@ -406,6 +412,9 @@ class JobseekerController extends Controller
         $payment_for = "Registration";
         //EventRegistration::create($input);
 
+        $request->session()->put('payment_ref_id',  $id);
+        $request->session()->put('payment_role',  $role);
+
         if ($data->package_price > 0) {
             $data1 = array(
                 'ref_id' => $id,
@@ -445,8 +454,8 @@ class JobseekerController extends Controller
 
 
             Transactions::create($data1);
-
-            return redirect('/');
+            return redirect('update_payment_status_jobseeker');
+           // return redirect('/');
         }
     }
 
@@ -467,12 +476,28 @@ class JobseekerController extends Controller
 
         if ($transaction->isSuccessful()) {
             Transactions::where('order_id', $order_id)->update(['status' => 2, 'transaction_id' => $transaction->getTransactionId()]);
-
-            return redirect('/');
+            return redirect('update_payment_status_jobseeker');
+            //return redirect('/');
             // dd('Payment Successfully Paid.');
         } else if ($transaction->isFailed()) {
             Transactions::where('order_id', $order_id)->update(['status' => 1, 'transaction_id' => $transaction->getTransactionId()]);
             dd('Payment Failed.');
         }
+    }
+
+    public function change_jobseeker_payment_status(Request $request)
+    {
+        $id = Session::get('payment_ref_id');
+        $role = Session::get('payment_role');
+
+        $where=array('role'=>$role,'ref_id'=>$id);
+        Login_master::where($where)->update(['payment_status' => 1]);
+        Jobseeker_register::where('id',$id)->update(['payment_status' => 1]);
+
+        $request->session()->forget('payment_ref_id');
+        $request->session()->forget('payment_role');
+
+
+        return redirect('/');
     }
 }

@@ -8,6 +8,6 @@ class Cunsultancy_register extends Model
 {
     protected $table = "consultancy_register";
     protected $fillable = [
-        'date', 'cunsultancy_name', 'package_id', 'mobile', 'cunsultancy_address', 'city',  'reference',  'upload_image',
+        'date', 'cunsultancy_name', 'package_id', 'mobile', 'cunsultancy_address', 'city',  'reference',  'upload_image','payment_status'
     ];
 }
