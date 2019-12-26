@@ -17,6 +17,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/resources/img/favicon.ico">
     <title>Dootell</title>
 
+
     {{--  CSS INCLUDE  --}}
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/resources/sass/theme.css',true) }}" />
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('/resources/sass/custom.css',true) }}" />
