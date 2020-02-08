@@ -296,7 +296,7 @@
                                         <div class="col-lg-12">
 
                                             <input type="file" name="image1" id="image1"
-                                                accept=".jpg,.jpeg,.png,.gif" />
+                                                 />
                                             <input type="hidden" name="filehidden1" id="filehidden1" value="">
 
                                             <br>
@@ -306,7 +306,7 @@
                                                 file..)</span></label>
                                         <div class="col-lg-12">
 
-                                            <input type="file" name="image2" id="image2" accept=".pdf,.doc" />
+                                            <input type="file" name="image2" id="image2"  />
                                             <input type="hidden" name="filehidden2" id="filehidden2" value="">
                                             <br>
                                         </div>
