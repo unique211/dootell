@@ -90,6 +90,8 @@
                                                     </select>
                                                     <br>
                                                 </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <div class="col-sm-3">
                                                     <label>Package Validity*</label>
                                                 </div>
@@ -107,6 +109,8 @@
                                                         placeholder="Package Price" required>
                                                     <br>
                                                 </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <div class="col-sm-3">
                                                     <label>Image* <span style="color:red;">(Please upload file upto
                                                             1 MB Size)</span></label>
@@ -123,6 +127,19 @@
                                                         <input type="number" name="no_of_candidate" id="no_of_candidate"
                                                             class="form-control" placeholder="Number of Candidate"
                                                             required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <div id="if_edit" style="display:none">
+                                                    <div class="col-sm-3">
+                                                        <label>Status*</label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <input type="hidden" id="statusinfo" name="statusinfo" value="">
+                                                    {{--  <input type="checkbox"  style="width: 50px; height: 22px;"   id="status" checked data-toggle="toggle"      data-on="Active" data-off="Deactive"  data-onstyle="success" data-offstyle="danger"  >  --}}
+                                                    <input type="checkbox"  id="status" checked data-toggle="toggle"    data-on="Active" data-off="Inactive"  data-onstyle="success" data-offstyle="danger"  >
                                                     </div>
                                                 </div>
                                                 <div id="if_company" style="display:none;">
@@ -220,13 +237,13 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('package_list.store',true) }}";
+    var add_data="{{ route('package_list.store') }}";
 
-    var delete_data="{{ url('package_list_delete',true) }}";
+    var delete_data="{{ url('package_list_delete') }}";
 var role="<?php echo $val=Session::get('role');?>";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/package_list.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/package_list.js') }}">
     </script>
 
 

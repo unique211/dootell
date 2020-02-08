@@ -40,11 +40,12 @@
                 <form action="" name="master_form" id="master_form">
                     <div class="form-group row">
 
-                        <label class="col-lg-3">Date*</label>
+                        <label class="col-lg-3">Date</label>
                         <div class="col-lg-3">
-                            <div class="input-group date " data-provide="datepicker" required>
+                            {{--  <div class="input-group date " data-provide="datepicker" required>  --}}
+                                <div class="input-group">
                                 <input type="text" class="form-control input-sm placeholdesize date1" id="date"
-                                    autocomplete="off" name="date" required />
+                                    autocomplete="off" name="date" readonly />
                                 <div class="input-group-addon">
                                     <span class="fa fa-calendar"></span>
                                 </div>
@@ -223,9 +224,9 @@ $(".wait").hide();
         }
 
     });
-    var add_data="{{ route('subscriber.store',true) }}";
+    var add_data="{{ route('subscriber.store') }}";
 var redirect="{{ url('/') }}";
-    var delete_data="{{ url('subscriber_delete',true) }}";
+    var delete_data="{{ url('subscriber_delete') }}";
 var role="<?php echo Session::get('role');?>";
 </script>
 <script>
@@ -239,7 +240,7 @@ var role="<?php echo Session::get('role');?>";
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js',true) }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/subscriber.js') }}">
 </script>
 
 </html>
