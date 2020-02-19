@@ -11,8 +11,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
         {{--  <!------ Include the above in your HEAD tag ---------->  --}}
 
         <style>
@@ -89,7 +90,7 @@
                 </div>
             </div>
             <div class="col-md-3 column productbox">
-                <img src="{{ env('APP_URL') }}/resources/img/subscriber.jpg" class="img-responsive">
+                <img src="{{ env('APP_URL') }}/resources/img/subscribe.png" class="img-responsive">
 
                 <div class="productprice">
                     <div class=""><a href="{{ url('subscriber_register') }}" class="btn btn-danger btn-sm"

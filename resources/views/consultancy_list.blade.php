@@ -74,11 +74,12 @@
                                 <form action="" name="master_form" id="master_form">
                                     <div class="form-group row">
                                         <br>
-                                        <label class="col-lg-3">Date*</label>
+                                        <label class="col-lg-3">Date</label>
                                         <div class="col-lg-3">
-                                            <div class="input-group date " data-provide="datepicker" required>
+                                            {{--  <div class="input-group date " data-provide="datepicker" required>  --}}
+                                                <div class="input-group">
                                                 <input type="text" class="form-control input-sm placeholdesize date1"
-                                                    id="date" autocomplete="off" name="date" required />
+                                                    id="date" autocomplete="off" name="date" readonly />
                                                 <div class="input-group-addon">
                                                     <span class="fa fa-calendar"></span>
                                                 </div>
@@ -246,13 +247,13 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('consultancy.store',true) }}";
+    var add_data="{{ route('consultancy.store') }}";
 var role="<?php echo $val=Session::get('role');?>";
-    var delete_data="{{ url('consultancy_delete_data',true) }}";
+    var delete_data="{{ url('consultancy_delete_data') }}";
 
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/consultancy_register.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/consultancy_register.js') }}">
     </script>
 
     <script type="text/javascript">

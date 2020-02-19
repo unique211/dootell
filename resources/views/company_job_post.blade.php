@@ -87,6 +87,7 @@
 
 
                                 <form action="" name="master_form" id="master_form">
+                                    @csrf
                                     <div class="form-group row">
                                         <label class="col-lg-3">Job Post Date*</label>
                                         <div class="col-lg-3">
@@ -330,13 +331,13 @@ $('#filehidden1').val(data);
         }
 
     });
-    var add_data="{{ route('company_postjob.store',true) }}";
+    var add_data="{{ route('company_postjob.store') }}";
 
-    var delete_data="{{ url('company_postjob_delete',true) }}";
-var change_status="{{ url('change_status_job_post',true) }}";
+    var delete_data="{{ url('company_postjob_delete') }}";
+var change_status="{{ url('change_status_job_post') }}";
     </script>
 
-    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_job_post.js',true) }}">
+    <script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/company_job_post.js') }}">
     </script>
 
     <script type="text/javascript">

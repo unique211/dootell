@@ -35,11 +35,12 @@
                 <form action="" name="master_form" id="master_form">
                     <div class="form-group row">
                         <br>
-                        <label class="col-lg-3">Date*</label>
+                        <label class="col-lg-3">Date</label>
                         <div class="col-lg-3">
-                            <div class="input-group date " data-provide="datepicker" required>
+                            {{--  <div class="input-group date " data-provide="datepicker" required>  --}}
+                                <div class="input-group">
                                 <input type="text" class="form-control input-sm placeholdesize date1" id="date"
-                                    autocomplete="off" name="date" required />
+                                    autocomplete="off" name="date"   readonly/>
                                 <div class="input-group-addon">
                                     <span class="fa fa-calendar"></span>
                                 </div>

@@ -11,7 +11,22 @@ $(document).ready(function() {
         $('#no_of_candidate').val('');
         $("#if_c").hide();
         $("#if_company").hide();
+        $('#if_edit').hide();
     }
+
+    $(document).on('change', "#status", function(e) {
+        e.preventDefault();
+        var status = 0;
+
+        if ($('#status').is(":checked")) {
+            status = 1;
+        } else {
+            status = 0;
+        }
+
+        $('#statusinfo').val(status);
+
+    });
 
     $(document).on('change', "#package_type", function(e) {
         e.preventDefault();
@@ -24,9 +39,11 @@ $(document).ready(function() {
         if (package_type == "Consultancy") {
             $("#if_c").show();
             $("#if_company").hide();
+
         } else if (package_type == "Company") {
             $("#if_c").show();
             $("#if_company").show();
+
         } else {
             $("#if_c").hide();
             $("#if_company").hide();
@@ -39,6 +56,16 @@ $(document).ready(function() {
         e.preventDefault();
         // alert("in submit");
         $(':input[type="submit"]').prop('disabled', true);
+
+        var status = 0;
+        if ($('#status').is(":checked")) {
+            status = 1;
+        } else {
+            status = 0;
+        }
+
+        $('#statusinfo').val(status);
+
         $.ajax({
             data: $('#master_form').serialize(),
             url: add_data,
@@ -171,8 +198,29 @@ $(document).ready(function() {
             $('#price').val(data.package_price);
             // $('#image').val(data.image);
             $('#filehidden1').val(data.image);
-            $('#no_of_candidate').val(data.no_of_candidate);
-            $('#no_of_customer').val(data.no_of_customer);
+            if (data.no_of_candidate == "" || data.no_of_candidate == null) {
+                $('#no_of_candidate').val(0);
+            } else {
+                $('#no_of_candidate').val(data.no_of_candidate);
+            }
+            if (data.no_of_customer == "" || data.no_of_customer == null) {
+                $('#no_of_customer').val(0);
+            } else {
+                $('#no_of_customer').val(data.no_of_customer);
+            }
+
+
+            var status = data.status;
+            if (status == 1) {
+
+                $('#status').bootstrapToggle('on');
+
+            } else {
+                $('#status').bootstrapToggle('off');
+                // $('#status').bootstrapToggle('off');
+            }
+            $('#statusinfo').val(status);
+            $('#if_edit').show();
 
         });
     });

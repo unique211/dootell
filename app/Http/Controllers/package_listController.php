@@ -82,6 +82,7 @@ class package_listController extends Controller
                 'image'        =>  $request->filehidden1,
                 'no_of_candidate'        =>  $request->no_of_candidate,
                 'no_of_customer'        =>  $request->no_of_customer,
+                'status'        =>  $request->statusinfo,
                 'user_id'        =>  $user_id,
             ]
 

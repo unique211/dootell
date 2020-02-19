@@ -61,6 +61,7 @@ Route::get('company_package', function () {
     $data1 = DB::table('package_list_master')
         ->select('package_list_master.*')
         ->where('package_type', 'Company')
+        ->where('status', 1)
         ->get();
     $cnt1 = count($data1);
     $data['package'] = null;
@@ -82,6 +83,7 @@ Route::get('jobseeker_package', function () {
     $data1 = DB::table('package_list_master')
         ->select('package_list_master.*')
         ->where('package_type', 'Individual')
+        ->where('status', 1)
         ->get();
     $cnt1 = count($data1);
     $data['package'] = null;
@@ -102,6 +104,7 @@ Route::get('consultancy_package', function () {
     $data1 = DB::table('package_list_master')
         ->select('package_list_master.*')
         ->where('package_type', 'Consultancy')
+        ->where('status', 1)
         ->get();
     $cnt1 = count($data1);
     $data['package'] = null;

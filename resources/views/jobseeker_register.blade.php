@@ -48,11 +48,12 @@
                             </label>
                         </div>
 
-                        <label class="col-lg-3">Date*</label>
+                        <label class="col-lg-3">Date</label>
                         <div class="col-lg-3">
-                            <div class="input-group date " data-provide="datepicker" required>
+                            {{--  <div class="input-group date " data-provide="datepicker" required>  --}}
+                                <div class="input-group">
                                 <input type="text" class="form-control input-sm placeholdesize date1" id="date"
-                                    autocomplete="off" name="date" required />
+                                    autocomplete="off" name="date" readonly />
                                 <div class="input-group-addon">
                                     <span class="fa fa-calendar"></span>
                                 </div>
@@ -274,7 +275,7 @@
                                 jpeg, png, gif format upto 1 MB Size file..)</span></label>
                         <div class="col-lg-12">
 
-                            <input type="file" name="image1" id="image1" accept=".jpg,.jpeg,.png,.gif" />
+                            <input type="file" name="image1" id="image1"  />
                             <input type="hidden" name="filehidden1" id="filehidden1" value="">
 
                             <br>
@@ -284,7 +285,7 @@
                                 file..)</span></label>
                         <div class="col-lg-12">
 
-                            <input type="file" name="image2" id="image2" accept=".pdf,.doc" />
+                            <input type="file" name="image2" id="image2"  />
                             <input type="hidden" name="filehidden2" id="filehidden2" value="">
                             <br>
                         </div>
@@ -461,9 +462,9 @@ $(".wait").hide();
 
 
     });
-    var add_data="{{ route('jobseeker.store',true) }}";
-var add_experience="{{ url('add_experience',true) }}";
-    var delete_data="{{ url('jobseeker_delete',true) }}";
+    var add_data="{{ route('jobseeker.store') }}";
+var add_experience="{{ url('add_experience') }}";
+    var delete_data="{{ url('jobseeker_delete') }}";
 var role="<?php echo Session::get('role');?>";
 </script>
 <script>
@@ -477,7 +478,7 @@ var role="<?php echo Session::get('role');?>";
                   $("#date").val(date);
                   //  $("#fdate").val(date);
 </script>
-<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/jobseeker_register.js',true) }}">
+<script type='text/javascript' src="{{ URL::asset('/resources/js/myjs/jobseeker_register.js') }}">
 </script>
 
 </html>
