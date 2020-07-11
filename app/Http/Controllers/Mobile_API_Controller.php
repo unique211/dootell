@@ -239,7 +239,7 @@ class Mobile_API_Controller extends Controller
         }
 
         if ($experience != "") {
-            $experience = trim(strtoupper($experience));
+          //  $experience = trim(strtoupper($experience));
             $job =  $job->where('experience_from', $experience);
         }
         if ($education != "") {
